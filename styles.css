@@ -9,6 +9,10 @@
   font-family: Arial, Helvetica, sans-serif;
 }
 
+body{
+  background-color: #EFEFEF;
+}
+
 header {
   background-color: blueviolet;
   padding: 16px 120px;
@@ -57,6 +61,27 @@ header input {
   color: #999;
 }
 
+#tarefas ul{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 36px;
+}
+
+#tarefas ul li{
+  width: calc(25% - 1rem);
+  padding: 16px;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 5px 10px #00000015;
+}
+
+#tarefas ul li h5{
+  font-size: 1rem;
+  margin-bottom: 1rem;
+}
+
+
 .todo {
   display: flex;
   justify-content: space-between;
@@ -71,6 +96,14 @@ header input {
   top: 0;
   left: 0;
   z-index: 1;
+  visibility: hidden;
+  opacity: 0;
+  transition-duration: 200ms;
+}
+
+#overlay.active{
+  opacity: 1;
+  visibility: visible;
 }
 
 .modal {
@@ -83,12 +116,39 @@ header input {
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 2;
+  visibility: hidden;
+  opacity: 0;
+  transition-duration: 200ms;
+}
+
+.modal.active {
+  opacity: 1;
+  visibility: visible;
 }
 
 .modal form h3{
   font-size: 24px;
   color: #999;
   margin-bottom: 26px;
+  display: flex;
+  justify-content: space-between;
+  align-itenms: center;
+}
+
+.modal form h3 button{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  width: 1rem;
+  background: none;
+  color: #999;
+  font-size: 24px;
+}
+
+.modal form h3 button:hover{
+    background: none;
+    color: blueviolet;
 }
 
 .modal form label {
