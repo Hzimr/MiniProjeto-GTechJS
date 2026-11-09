@@ -27,7 +27,7 @@ function inserirTarefas(listaDeTarefas) {
           ${tarefa.descricao}
         </p>
         <div class="actions">
-          <i class="bx bx-trash" onclick="removerTarefa(this)"></i>
+          <i class="bx bx-trash" onclick="deletarTarefa(${tarefa.id})"></i>
         </div>
       </li>`;
     });
@@ -52,4 +52,15 @@ function novaTarefa() {
       fecharModal();
       buscarTarefas();
     });
+}
+
+function deletarTarefa(id) {
+  fetch(`http://localhost:3000/tarefas/${id}`, {
+    method: "DELETE",
+  })
+    .then((res) => res.json())
+    .then((res) => {
+      alert("tarefa deletada com sucesso!");
+    });
+  buscarTarefas();
 }
